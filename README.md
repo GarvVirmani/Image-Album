@@ -31,8 +31,10 @@ Welcome to the **Image Album** project! This web application allows you to brows
 
 const images = [
     { src: 'https://images.unsplash.com/photo-1526034332220-067b0f400e06?w=600&auto=format&fit=crop&q=60', name: 'Tiger' },
+
     { src: 'https://images.unsplash.com/photo-1516642499105-492ff3ac521b?w=600&auto=format&fit=crop&q=60', name: 'Lion' }
 ];
+
 # 🔄 Image Navigation
  - The functions nextImageCard and previousImageCard allow users to cycle through the images. They modify the currentIndex to point to the next or previous image, and update the display accordingly.
 
@@ -41,26 +43,32 @@ const images = [
 
 
 function changeImageCard() {
+
     const img = document.querySelector('#image');
+
     const name = document.querySelector('.description');
+
     img.src = images[currentIndex].src;
+
     name.textContent = images[currentIndex].name;
+
 }
+
 # 🔄 Loading Animation
  - The loading function toggles the visibility of the loading spinner when transitioning between images.
 
 
 function loading() {
+
     const loader = document.querySelector('.loader');
+
     loader.classList.toggle('active');
+
 }
+
 # ➕ Adding New Images
  - The addNewImage function allows users to add a new image with a name and URL to the images array.
 
-function addNewImage(event) {
-    event.preventDefault();
-    const formData = new FormData(event.target);
-    const { imageName, imageUrl } = Object.fromEntries(formData.entries());
 
     images.push({ src: imageUrl, name: imageName });
     totalImages++;
